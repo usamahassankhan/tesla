@@ -10,18 +10,18 @@ function Section({
   rightBtnText,
 }) {
   return (
-    <Wrap>
+    <Wrap bgImage={backgroundImg}>
       <Fade bottom>
         <ItemText>
-          <h1>saddsdasdasasdas</h1>
-          <p>sdsadasdasasasasasassadasdasdassad</p>
+          <h1>{title}</h1>
+          <p>{description}</p>
         </ItemText>
       </Fade>
       <Buttons>
         <Fade bottom>
           <ButtonGroup>
-            <LeftButton>sdasds</LeftButton>
-            <RightButton>sdas</RightButton>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
           </ButtonGroup>
         </Fade>
         <DownArrow src="images/down-arrow.svg" />
@@ -44,7 +44,7 @@ const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  background-image: url("/images/model-s.jpg");
+  background-image: ${(props) => `url("images/${props.bgImage}")`};
 `;
 const ItemText = styled.div`
   padding-top: 15vh;
@@ -52,6 +52,7 @@ const ItemText = styled.div`
 `;
 const ButtonGroup = styled.div`
   display: flex;
+  justify-content: center;
   margin-bottom: 30px;
   @media (max-width: 768px) {
     flex-direction: column;
